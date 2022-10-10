@@ -19,11 +19,11 @@ nb_current_image = 1
 # now we can loop over the image paths, locate the faces, and encode them
 for image_path in image_paths:
     print(f"Image processed {nb_current_image}/{len(image_paths)}")
-    # load the image and convert it from BGR to RGB (dlib uses RGB)
+    # load the image
     image = cv2.imread(image_path)
-        
+    # get the face embeddings
     encodings = face_encodings(image)
-
+    # get the name from the image path
     name = image_path.split(os.path.sep)[-2]
     # get the encodings for the current name
     e = name_encondings_dict.get(name, [])
